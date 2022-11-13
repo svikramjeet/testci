@@ -1,22 +1,26 @@
-version: 2.1
-
-orbs:
-  heroku: circleci/heroku@0.0.10
+version: 2
 
 jobs:
-  heroku_deploy_review_app:
-    executor: heroku/default
+  build:
+    working_directory: ~/testci
+    docker:
+      - image: svikramjeet/php8.1
+        environment:
+          POSTGRES_PASSWORD: postgres
+
     steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git:
-          app-name: $HEROKU_APP_NAME
+      - run:
+          name: Test
+          command: ls
 
 workflows:
-  heroku_deploy:
+  version: 2
+  validate-and-deploy:
     jobs:
-      - heroku_deploy_review_app:
+      - api_tests:
           filters:
             branches:
               only:
-                - test-123/test-heroku-orb
+                - master
+
+
