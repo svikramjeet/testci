@@ -3,10 +3,6 @@ version: 2
 jobs:
   build:
     working_directory: ~/testci
-    docker:
-      - image: svikramjeet/php8.1
-        environment:
-          POSTGRES_PASSWORD: postgres
 
     steps:
       - run:
@@ -21,6 +17,5 @@ workflows:
           filters:
             branches:
               only:
-                - master
-
+                - main
 
