@@ -14,11 +14,12 @@ jobs:
 
 workflows:
   version: 2
-  validate-and-deploy:
+  heroku_deploy:
     jobs:
       - heroku_deploy_review_app:
           filters:
             branches:
               only:
-                - main
+                - test-123/test-heroku-orb
+
 
