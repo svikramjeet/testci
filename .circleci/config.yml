@@ -17,7 +17,7 @@ workflows:
   version: 2
   validate-and-deploy:
     jobs:
-      - api_tests:
+      - build:
           filters:
             branches:
               only:
