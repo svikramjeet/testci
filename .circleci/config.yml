@@ -3,11 +3,10 @@ version: 2
 jobs:
   build:
     working_directory: ~/testci
-
     steps:
       - run:
           name: Test
-          command: ls
+          command: pwd
 
 workflows:
   version: 2
